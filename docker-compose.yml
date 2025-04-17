@@ -1,0 +1,27 @@
+# docker-compose.yml
+version: '3.8' # Specify compose file version
+
+services:
+  # Define the FastAPI application service
+  chat-app:
+    container_name: chatApp # Assign a specific container name
+    build:
+      context: . # Use the current directory as the build context
+      dockerfile: Dockerfile # Specify the Dockerfile to use (optional if named Dockerfile)
+    ports:
+      # Map port 8000 on the host to port 8000 in the container
+      - "8000:8000"
+    restart: unless-stopped # Restart policy
+    # Optional: Add environment variables if needed later
+    # environment:
+    #   - EXAMPLE_VAR=example_value
+    # Optional: For development with live reload, you could mount volumes
+    # volumes:
+    #  - .:/app
+    # And change the CMD in Dockerfile or add 'command' here for Uvicorn reload:
+    # command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+
+# Optional: Define networks if you add more services like Redis or a DB
+# networks:
+#   chat_network:
+#     driver: bridge

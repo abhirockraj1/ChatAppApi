@@ -1,0 +1,7 @@
+Navigate: Open your terminal and change into the fastapi-chat-compose directory.
+docker-compose up --build -d
+Access the App: Open your web browser and go to http://localhost:8000. The corrected JavaScript in main.py will ensure the WebSocket connects to ws://localhost:8000/ws/....
+Test: Open multiple browser tabs to http://localhost:8000 to simulate multiple chat clients.
+View Logs: To see the output (connection/disconnection messages, errors) from the FastAPI app container 
+    docker-compose logs -f chat-app
+docker-compose down    
